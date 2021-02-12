@@ -1,0 +1,170 @@
+﻿.request-container {
+    position: relative;
+    overflow: auto;
+}
+
+.request-client-container {
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Roboto',sans-serif;
+    border-bottom: 3px solid #FFCF6D;
+    margin: 5px 0px;
+    transform: scaleY(1);
+    transition: transform 1s;
+    -webkit-transition: transform 1s;
+    transform-origin: top left;
+    overflow: hidden;
+}
+
+    .request-client-container.activeheight {
+        transform: scaleY(0);
+    }
+
+
+    .request-client-container header {
+    }
+
+.type-products-tittle {
+    font-size: 17px;
+    color: #642120;
+}
+
+.box-client-request {
+    position: relative;
+    width: 100%;
+    padding: 5px 5px;
+    overflow: auto;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.request-product {
+    margin-bottom: 4px;
+    overflow: auto;
+    border-bottom: 1px solid #d3d3d3;
+}
+
+.row-request {
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.right-field .line-right-text {
+    color: #2e2e2e;
+    font-size: 15px;
+}
+
+.graphs {
+    /*background: purple;*/
+    width: 100%;
+    overflow: auto;
+    position: relative;
+    box-sizing: border-box;
+    padding: 5px 0px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+    .graphs .limit-count {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .graphs .graph-item {
+        width: 100%;
+        background-color: #f3f3f3;
+        height: 35px;
+        position: relative;
+        margin-bottom: 10px;
+    }
+
+        .graphs .graph-item .graph-cell {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: aliceblue;
+            overflow: hidden;
+            transition: all 2s;
+            -webkit-transition: all 2s;
+            -moz-transition: all 2s;
+            -o-transition: all 2s;
+        }
+
+        .graphs .graph-item span {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+        }
+
+        .graphs .graph-item .graph-text {
+            font-size: 15px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .graphs .graph-item .graph-cell span.front-font {
+            color: #FFFFFF;
+        }
+
+        .graphs .graph-item span.back-font {
+            color: #000000;
+        }
+
+
+
+
+
+.total-price {
+    display: inline-block;
+}
+
+.total-price-section {
+    font-size: 20px;
+    background: #FFFFFF;
+    color: #FFCF6D;
+    text-align: right;
+}
+
+.calc-total {
+    font-size: 11px;
+    color: #d3d3d3;
+}
+
+.request-client-container .request-client-content {
+    background: #ffffff;
+}
+
+.request-client-container footer {
+    background: #FFFFFF;
+    text-align: center;
+}
+
+.delete-request {
+    padding: 10px;
+    background: #DF2025;
+    border: none;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+.adm-request {
+    padding: 0;
+    background: transparent;
+    border: none;
+    color: #d3d3d3;
+    font-size: 15px;
+    transition: all ease-in .2s;
+    -webkit-transition: all ease-in .2s;
+    -moz-transition: all ease-in .2s;
+    /*-ms-transition: all ease-in .2s;*/
+    -o-transition: all ease-in .2s;
+}
+
+footer .adm-request:hover {
+    color: #FFCF6D;
+}

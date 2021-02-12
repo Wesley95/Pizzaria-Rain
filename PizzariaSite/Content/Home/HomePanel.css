@@ -1,0 +1,387 @@
+﻿.container-parallax {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.parallax-top {
+    background-image: url('../../Images/PizzaBackground.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*filter: blur(8px);
+    -webkit-filter: blur(8px);*/
+}
+
+@media only screen and (max-device-width: 1366px) {
+    .parallax-top {
+        background-attachment: scroll;
+    }
+}
+
+.nav {
+    width: 100%;
+    height: 800px;
+}
+
+    .nav .nav-bottom {
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0,0, 0.2);
+        position: relative;
+    }
+
+    .nav .background-blur {
+        height: 100%;
+        width: 100%;
+        background: rgba(0,0,0, 0.5);
+    }
+
+
+.img-center-panel {
+    width: 300px;
+    height: 300px;
+}
+
+.nav-text {
+    margin: 0;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+}
+
+.h-tittle {
+    font-size: 40px;
+    white-space: nowrap;
+}
+
+.h-text {
+    font-size: 130px;
+    padding: 5px;
+    border-top: 3px dotted white;
+    border-bottom: 3px dotted white;
+    white-space: nowrap;
+}
+
+.btn-nav-top
+{
+    margin:0 auto;
+    position:absolute;
+    transform:translateX(-50%);
+    left:50%;
+}
+
+@media only screen and (max-width:1040px) {
+
+    .h-tittle {
+        font-size: 35px;
+        white-space: nowrap;
+    }
+
+    .h-text {
+        font-size: 100px;
+        white-space: nowrap;
+    }
+}
+
+@media only screen and (max-width:800px) {
+
+    .h-tittle {
+        font-size: 22px;
+        white-space: nowrap;
+    }
+
+    .h-text {
+        font-size: 80px;
+        white-space: nowrap;
+    }
+}
+
+
+@media only screen and (max-width:640px) {
+
+    .h-tittle {
+        font-size: 15px;
+        white-space: nowrap;
+    }
+
+    .h-text {
+        font-size: 50px;
+        white-space: nowrap;
+    }
+}
+
+
+
+@media only screen and (max-width:480px) {
+    .h-tittle {
+        font-size: 13px;
+        white-space: nowrap;
+    }
+
+    .h-text {
+        font-size: 45px;
+        white-space: nowrap;
+    }
+}
+
+
+
+/*HOOOOOOOOOOOOOMEEE*/
+.container-index {
+    box-sizing: border-box;
+    /*padding-bottom: 30px;*/
+    width: 100%;
+    overflow: auto;
+    display: block;
+    -webkit-box-shadow: 0px 8px 37px 8px rgba(0,0,0,0.74);
+    -moz-box-shadow: 0px 8px 37px 8px rgba(0,0,0,0.74);
+    box-shadow: 0px 8px 37px 8px rgba(0,0,0,0.74);
+    position: relative;
+}
+
+    .container-index .header-index {
+        width: 100%;
+        padding: 10px 0px;
+        overflow: auto;
+        box-sizing: border-box;
+        background: #FFFFFF;
+        position: relative;
+    }
+
+        .container-index .header-index .separator-bottom {
+            width: 100%;
+            height: 15px;
+            position: absolute;
+            bottom: 0;
+            /*background-image: url(../../Images/Enfeites/TrianguloSpan.png);
+            background-size: 15px 9px;
+            background-repeat: repeat-x;*/
+            display: block;
+            -webkit-transform: scaleY(-1);
+            transform: scaleY(-1);
+        }
+
+    .container-index .index-content-1 {
+        width: 100%;
+        box-sizing: border-box;
+        padding-top: 30px;
+        padding-bottom: 10px;
+        overflow: hidden;
+        background-color: #FFFFFF;
+    }
+
+
+.group-info,
+.group-who {
+    margin: 0 auto;
+    width: 100%;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    /*background:blue;*/
+    justify-content: space-between;
+    text-align: center;
+}
+
+.tittle-group-info {
+    overflow: auto;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0px 20px 0px;
+}
+
+    .tittle-group-info h1 {
+        color: #000000;
+        padding: 10px 0px;
+        margin: 0;
+        font-family: 'Caviar Dreams';
+        font-size: 60px;
+        white-space: nowrap;
+    }
+
+    .tittle-group-info h5 {
+        color: #000000;
+        padding: 5px 0px;
+        margin: 0;
+        font-family: 'Caviar Dreams';
+        font-size: 25px;
+        white-space: nowrap;
+    }
+
+@media only screen and (max-width:745px) {
+
+    .tittle-group-info h1 {
+        font-size: 40px;
+    }
+
+    .tittle-group-info h5 {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width:520px) {
+
+    .tittle-group-info h1 {
+        font-size: 30px;
+    }
+
+    .tittle-group-info h5 {
+        font-size: 15px;
+    }
+}
+
+.group-info .item-info {
+    width: 350px;
+    margin: 0 auto 20px;
+    box-sizing: border-box;
+    padding: 0px 20px 20px 20px;
+}
+
+    .group-info .item-info .tittle-info {
+        font-size: 30px;
+        color: #000000;
+        font-family: Raleway;
+    }
+
+    .group-info .item-info .info-text {
+        font-family: "Dekar Regular";
+        color: #000000;
+        font-size: 15px;
+        border-left: 1px solid #000000;
+    }
+
+.container-index .index-content-2 {
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    color: #000000;
+}
+
+
+    .container-index .index-content-2 .who-text {
+        width: 700px;
+        margin: 0 auto 35px;
+        text-align: center;
+        font-size: 80px;
+        font-family: 'Caviar Dreams';
+    }
+
+        .container-index .index-content-2 .who-text h1 {
+            font-size: 100%;
+        }
+
+        .container-index .index-content-2 .who-text .under-tittle {
+            font-size: 22%;
+        }
+
+        .container-index .index-content-2 .who-text .who-info {
+            font-size: 30%;
+        }
+
+@media only screen and (max-width:720px) {
+    .container-index .index-content-2 .who-text {
+        font-size: 70px;
+        width: 600px;
+    }
+}
+
+
+@media only screen and (max-width:620px) {
+    .container-index .index-content-2 .who-text {
+        font-size: 60px;
+        width: 500px;
+    }
+}
+
+
+@media only screen and (max-width:520px) {
+    .container-index .index-content-2 .who-text {
+        font-size: 60px;
+        width: 480px;
+    }
+}
+
+
+
+.group-who .item-who {
+    width: 250px;
+    overflow: auto;
+    margin: 0 auto 20px;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+    .group-who .item-who h3 {
+        font-family: 'Built Titling';
+        width: 100%;
+        margin: 5px auto;
+        font-size: 25px;
+        color: #000000;
+    }
+
+    .group-who .item-who .img-who {
+        margin: 0 auto;
+        box-sizing: border-box;
+        border: 3px solid #FFCF6D;
+        width: 150px;
+        height: 150px;
+        background-image: url(../../Images/Logo/BackgroundHome.png);
+        background-size: 100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 50%;
+    }
+
+    .group-who .item-who .text-who {
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+        padding: 0 5px;
+        text-align: center;
+        font-family: Raleway;
+        color: #000000;
+        font-size: 18px;
+    }
+
+    .group-who .item-who .links-social-media {
+        display: flex;
+        justify-content: space-between;
+        width: 40%;
+        height: 20%;
+        padding-top: 2px;
+        margin:0 auto;
+    }
+
+        .group-who .item-who .links-social-media a {
+            font-size: 20px;
+            color: #e5e5e5;
+            -webkit-transition: ease-in 0.1s;
+            -moz-transition: ease-in 0.1s;
+            -ms-transition: ease-in 0.1s;
+            -o-transition: ease-in 0.1s;
+            transition: ease-in 0.1s;
+        }
+
+        .group-who .item-who .links-social-media .fb-link:hover {
+            color: #3B5998;
+        }
+
+        .group-who .item-who .links-social-media .insta-link:hover {
+            color: #C92087;
+        }
+
+        .group-who .item-who .links-social-media .tt-link:hover {
+            color: #00ACEE;
+        }

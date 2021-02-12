@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Meu ASP.NET</title>
+
+    @Styles.Render("~/Content/css")
+
+    @if (Url.Action("Index", "Home", new { area = "" }) == Request.RawUrl)
+    {
+        @Styles.Render("~/HomePanel")
+    }
+    else
+    {
+        @Styles.Render("~/Default/css")
+    }
+
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    @RenderPage("~/Views/Shared/_Nav.cshtml")
+
+    @if (Url.Action("Index", "Home", new { area = "" }) == Request.RawUrl)
+    {
+        @Html.Partial("_HomePanel")
+    }
+    else
+    {
+        @Html.Partial("_DefaultPanel")
+    }
+
+    @RenderBody()
+    @Html.Partial("_Footer")
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryunobtrusive")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/myjs")
+
+    @RenderSection("scripts", required: false)
+
+    <script src="https://kit.fontawesome.com/d9767dd774.js" crossorigin="anonymous"></script>
+</body>
+</html>

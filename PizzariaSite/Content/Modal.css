@@ -1,0 +1,137 @@
+﻿.modal-leader {
+    position: relative;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-family: 'Roboto',sans-serif;
+}
+
+.back-modal {
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, .1);
+    z-index: 8000;
+    position: fixed;
+    display: none;
+}
+
+.body-modal {
+    width: 100%;
+    overflow: auto;
+    height: auto;
+    box-sizing: border-box;
+    /*border-radius: 5px;*/
+    /*padding: 10px;*/
+    background: /*#FFF6F1*/ white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-box-shadow: 0px 0px 20px 6px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 0px 20px 6px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 20px 6px rgba(0,0,0,0.5);
+}
+
+.modal-order-content {
+    position: relative;
+    width: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+    /*background: brown;*/
+    padding: 10px;
+}
+
+.header-modal {
+    background: #FFCF6D;
+    padding: 15px 10px;
+}
+
+.content-modal {
+    border-bottom: 1px solid #d3d3d3;
+}
+
+.tittle-modal {
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    font-family: 'Caviar Dreams';
+}
+
+.close-modal-button {
+    background: none;
+    border: none;
+    color: #FFFFFF;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 20px;
+    outline: none;
+}
+
+    .close-modal-button:hover {
+        color: rgb(226, 0, 0);
+    }
+
+    .close-modal-button:active {
+        color: rgb(181, 0, 0);
+    }
+
+
+.confirm-or-not-modal {
+    display: inline-block;
+    align-items: center;
+    text-align: right;
+    /*background:red;*/
+    float: right;
+}
+
+.footer-modal .input-plus-button {
+    width: 100%;
+    /*background: blue;*/
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+    .footer-modal .input-plus-button input[type=text],
+    .footer-modal .input-plus-button button {
+        max-width: 100%;
+        margin: 0px;
+        border-radius: 0%;
+    }
+
+
+.input-plus-button .input-plus {
+    width: 100%;
+}
+
+.input-plus-button .button-plus {
+    width: 100%;
+}
+/*REGISTER PRODUCTS MODAL*/
+.register-modal {
+    width: 500px;
+}
+
+/*REGISTER PRODUCT TYPE MODAL*/
+.register-type-product-modal {
+    width: 300px;
+}
+
+.content-modal .type-products-container,
+.content-modal .products-info-container {
+    width: 100%;
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+    /*.content-modal .type-products-container:hover,
+    .content-modal .products-info-container:hover {
+        overflow-y: scroll;
+    }*/
+/*INFO PRODUCT*/
+.info-product-modal {
+    width: 320px;
+}

@@ -1,0 +1,81 @@
+﻿.parallax-default {
+    background-image: url('../../Images/PizzaBackgroundDefault.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media only screen and (max-device-width: 1366px) {
+    .parallax-default {
+        background-attachment: scroll;
+    }
+}
+
+.all-panel {
+    height: auto;
+    width: auto;
+    /*margin-bottom: 25px;*/
+    position:relative;
+}
+
+.default-panel {
+    width: 100%;
+    height: 300px;
+    /*margin-bottom: 25px;*/
+}
+
+    .default-panel .panel-center {
+        height: 100%;
+        width: 100%;
+        background: rgba(0,0,0, 0.5);
+        position: relative;
+    }
+
+.tittle-default {
+    box-sizing: border-box;
+    padding: 5px 0;
+    width: auto;
+    height: auto;
+    border-top: 3px dotted #ffffff;
+    border-bottom: 3px dotted #ffffff;
+    font-size: 50px;
+    color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space:nowrap;
+}
+
+
+.separator {
+    width: 100%;
+    height: 14px;
+    position:absolute;
+    bottom:-7px;
+
+    /*background: yellow;*/
+}
+
+
+.style-separator-0 {
+    background-image: url(../../Images/Enfeites/TrianguloBranco.png);
+    background-size: 15px 7px;
+    background-repeat: repeat-x;
+    display:block;
+    width:100%;
+    height:50%;
+    
+}
+
+.style-separator-1 {
+    background-image: url(../../Images/Enfeites/TrianguloLaranja.png);
+    background-size: 15px 7px;
+    background-repeat: repeat-x;
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+    display: block;
+    width: 100%;
+    height: 50%;
+}

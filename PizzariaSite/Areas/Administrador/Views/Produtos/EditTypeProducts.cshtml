@@ -1,0 +1,111 @@
+﻿@{
+    ViewBag.Title = "EditTypeProducts";
+    var product_type = (ProjetoPizzaria.DTO.ProductType)ViewBag.ProductTypeToEdit;
+    int aux = 0;
+
+}
+<input type="hidden" data-id="@(product_type.Id)" id="id-type" />
+<div class="width-max container-edit-products">
+    <svg class="inline-svg">
+        <symbol id="checkitem" viewBox="0 0 12 10">
+            <polyline points="1.5 3 3.5 7 8.5 0.5">
+                @*0.5 2.2 2.5 5.5 7.5 0.2*@
+            </polyline>
+        </symbol>
+    </svg>
+
+    <div class="container-general fields" style="overflow:auto;">
+        <div>
+            <button class="select-all-by-subtype btn-default-edit btn-red-edit" disabled>Marcar Todos</button>
+            <button class="unselect-all-by-subtype btn-default-edit btn-green-edit" disabled>Dermarcar Todos</button>
+            <button class="delete-all-by-subtype btn-default-edit btn-yellow-edit" disabled>Deletar</button>
+            <button class="save-all-by-subtype-selected btn-default-edit btn-brown-edit">Salvar</button>
+            <button class="quit-save-btn btn-default-edit">Fechar</button>
+            <div>
+                <div class="form-group input-btn">
+                    <label for="subtype-change-price" class="label-form default-form-label">Preço</label>
+                    <input type="text" class="control-properties normal-control pricemask subtype-change-price" id="subtype-change-price" placeholder="R$0,00" />
+                    <span class="text-danger" id="subtype-price-change-error"></span>
+                    <button class="btn-change-price btn-default-edit btn-yellow-edit">Alterar</button>
+                </div>
+            </div>
+        </div>
+
+        <hr class="bigger-hr" />
+
+        @foreach (var subproduct in product_type.subproduto)
+        {
+            <div class="subproduct-edit-container flex-row" id="@("subproduct-"+subproduct.Id)">
+                <div class="row-flex subtype-name">
+                    <div class="subproduct-item-controller flex-align">
+                        <input type="checkbox" class="inp-cbx check-subtype-change" data-id="@(subproduct.Id)" id="@(subproduct.Id + "/"+subproduct.Nome)" unchecked />
+                        <label class="cbx inp-yellow-gray" for="@(subproduct.Id + "/"+subproduct.Nome)">
+                            <span>
+                                <svg width="12px" height="10px">
+                                    <use xlink:href="#checkitem"></use>
+                                </svg>
+                            </span>
+                        </label>
+                        <div class="">@subproduct.Nome</div>
+                    </div>
+                </div>
+
+                <div class="products-container subproducts-products width-max" data-id="@(subproduct.Id)">
+
+                    @while (aux < subproduct.produto.Count())
+                    {
+                        <div class="inside-three" data-id="">
+                            @{
+                                int calc = subproduct.produto.Count() - aux,
+                                    count = calc >= 3 ? 3 : calc;
+                            }
+
+                            @if (calc >= 0)
+                            {
+                                for (int c1 = aux; c1 < (aux + count); c1++)
+                                {
+                                    var product = subproduct.produto;
+                                    <div class="inside-three-item">
+
+                                        <div class="product-item-container-edit" data-id="@(subproduct.Id)">
+                                            <div class="product-edit-info row-flex" id="@(product[c1].Id)">
+                                                <div>
+                                                    <input class="inp-cbx ckb-edit-product" type="checkbox" id="@(product[c1].Id + "/" + product[c1].Nome)" data-id="@(product[c1].Id)" name="product-edit" unchecked />
+                                                    <label class="cbx inp-yellow-gray" for="@(product[c1].Id + "/" + product[c1].Nome)">
+                                                        <span>
+                                                            <svg width="12px" height="10px">
+                                                                <use xlink:href="#checkitem"></use>
+                                                            </svg>
+                                                        </span>
+                                                        <span>@product[c1].Nome</span>
+                                                    </label>
+                                                </div>
+                                                <div class="product-price-edit" data-id="price">
+                                                    R$@product[c1].PrecoProduto
+                                                </div>
+                                            </div>
+                                            <textarea class="product-info-text  control-properties normal-control  text-adapter" id="@(product[c1].Id)">@(product[c1].Comentario)</textarea>
+                                        </div>
+                                    </div>
+                                }
+                                aux += 3;
+
+                            }
+                        </div>
+                    }
+                    @{aux = 0;}
+
+                </div>
+
+            </div>
+            <hr class="bigger-hr" />
+        }
+    </div>
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/inputmask")
+    @Scripts.Render("~/Masonry")
+    @Scripts.Render("~/FunctionsProduct")
+}
+

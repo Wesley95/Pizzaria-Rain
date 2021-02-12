@@ -1,0 +1,96 @@
+/*
+	DP Number Picker jQuery Plugin, Version 1.0.1
+	Copyright (C) Dustin Poissant 2014
+	License CC BY-NC-SA 3.0 US
+	http://creativecommons.org/licenses/by-nc-sa/3.0/us/
+*/
+/*.dp-numberPicker,*/
+.dp-numberPicker-add,
+.dp-numberPicker-input,
+.dp-numberPicker-sub {
+    display: inline-block;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    vertical-align: top;
+    font-family: Roboto,serif
+}
+
+.dp-numberPicker {
+    width: 100%;
+}
+
+.dp-numberPicker-add,
+.dp-numberPicker-sub {
+    width: 20px;
+    font-size: 15px;
+    cursor: pointer;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    background-color: #33b5e5;
+    color: #fff;
+    font-weight: 700;
+    transition: all ease-in .1s;
+    -webkit-transition: all ease-in .1s;
+    -moz-transition: all ease-in .1s;
+    -ms-transition: all ease-in .1s;
+    -o-transition: all ease-in .1s;
+    /*text-shadow: 1px 1px 1px rgba(50,50,50,.5)*/
+}
+
+.dp-numberPicker-add {
+    background: #46A93D;
+}
+
+.dp-numberPicker-sub {
+    background: #DF2025;
+}
+
+.dp-numberPicker-add:hover
+{
+    background:#50b947;
+}
+
+.dp-numberPicker-sub:hover
+{
+    background:#e8393e;
+}
+
+
+
+.dp-numberPicker-add {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    /*box-shadow: inset 0 1px 1px rgba(255,255,255,.5),inset -1px -1px 1px rgba(0,0,0,.5)*/
+}
+
+    .dp-numberPicker-add.disabled {
+        background-color: #074201;
+    }
+
+.dp-numberPicker-sub {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    /*box-shadow: inset 1px 1px 1px rgba(255,255,255,.5),inset 0 -1px 1px rgba(0,0,0,.5)*/
+}
+
+    .dp-numberPicker-sub.disabled {
+        background-color: #6E0F12;
+    }
+
+
+.dp-numberPicker-input {
+    width: 50px;
+    font-size: 14px;
+    background-color: #eee;
+    border: 0;
+    /*box-shadow: inset 0 1px 1px rgba(255,255,255,.5),inset 0 -1px 1px rgba(0,0,0,.5)*/
+}
+
+    .dp-numberPicker-input:disabled {
+        background-color: #eee
+    }

@@ -1,0 +1,112 @@
+﻿@using PizzariaSite.Helpers;
+
+@{
+    ProjetoPizzaria.DTO.UserControl userinfo = new ProjetoPizzaria.DTO.UserControl();
+    string name = string.Empty;
+
+    bool userlogged = CookiesControll.UserAuthenticationInfo().Name == null;
+    //O nome é o ID e se for nulo, significa que está logado
+
+    bool admin = false;
+
+    if (!userlogged)
+    {
+        userinfo = ProjetoPizzaria.BLL.UserControlBLL.UserValuesById(CookiesControll.UserAuthenticationInfo().Name);
+        admin = CookiesControll.UserAuthenticationInfo().UserData == "Admin";
+        name = userinfo.Nome.ToUpper().Split(' ')[0];
+        name += !string.IsNullOrEmpty(userinfo.Nome.ToUpper().Split(' ')[1]) ? " " + userinfo.Nome.ToUpper().Split(' ')[1][0] + "." : "";
+    }
+}
+
+<div class="nav-top">
+    <div class="top-border"></div>
+    <div class="border-style"></div>
+
+    <div class="width-max ">
+        @Html.ActionLink(" ", "Index", "Home", new { area = "" }, htmlAttributes: new { @class = "top-center-img" })
+        <div class="sidebar-container">
+            <input type="checkbox" id="check" class="check-outclick">
+            <label for="check" class="lbl-buttons-sidebar">
+                <i class="fas fa-bars" id="btn"></i>
+                <i class="fas fa-times" id="cancel"></i>
+            </label>
+            <div class="sidebar">
+                <header>Pizza Rain</header>
+                <ul>
+                    <li class="separator-li"><i class="fas fa-bars"></i> MENU</li>
+                    <li><a href='@Url.Action("Index", "Home", new { area = "" })'><i class="fa fa-home"> </i>HOME</a></li>
+                    <li><a href='@Url.Action("", "", new { area = "Administrador" })'><i class="fas fa-list-alt"> </i>CARDÁPIO</a></li>
+                    <li><a href='@Url.Action("", "", new { area = "Administrador" })'><i class="fa fa-users"> </i>QUEM SOMOS</a></li>
+                    <li><a href='@Url.Action("", "", new { area = "Administrador" })'><i class="fa fa-picture-o"> </i>GALERIA</a></li>
+                    <li><a href='@Url.Action("", "", new { area = "Administrador" })'><i class="fa fa-phone"> </i>CONTATO</a></li>
+                    @if (!userlogged)
+                    {
+                        <li class="separator-li"><i class="fa fa-user"></i> @(name)</li>
+                        if (admin)
+                        {
+                            <li><a href='@Url.Action("Produtos", "Produtos", new { area = "Administrador" })'><i class="fas fa-list-alt"> </i> CONTROLE DE PRODUTOS</a></li>
+                        }
+                        else
+                        {
+                            <li><a href='@Url.Action("Pedidos", "Pedido", new { area = "Usuario" })'><i class="fas fa-list-alt"> </i> REALIZAR PEDIDOS</a></li>
+                            <li><a href='@Url.Action("PedidosRealizadosCliente", "Pedido", new { area = "Usuario" })'><i class="fas fa-check-square"> </i> PEDIDOS REALIZADOS</a></li>
+                        }
+
+                        <li><a href='@Url.Action("Sair", "Login", new { area = "" }, null)'><i class="fa fa-sign-out" aria-hidden="true"> </i> SAIR - LOGOFF</a></li>
+                    }
+                    else
+                    {
+                        <li class="separator-li"><i class="fa fa-sign-in"></i> LOGIN</li>
+                        <li><a href='@Url.Action("Cadastrar", "Cadastrar")'><i class="fa fa-user-plus"> </i>CADASTRAR</a></li>
+                        <li><a href='@Url.Action("Login", "Login")'><i class="fa fa-sign-in"> </i>LOGIN</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+        <ul class="left-li">
+            <li>@Html.ActionLink("HOME", "Index", "Home", new { area = "" }, htmlAttributes: new { @class = "anim-easy-in-out-0-5s" })</li>
+            <li>@Html.ActionLink("CARDÁPIO", "", "", new { area = "" }, htmlAttributes: new { @class = "anim-easy-in-out-0-5s" })</li>
+            <li>@Html.ActionLink("QUEM SOMOS", "", "", new { area = "" }, htmlAttributes: new { @class = "anim-easy-in-out-0-5s" })</li>
+            <li>@Html.ActionLink("GALERIA", "", "", new { area = "" }, htmlAttributes: new { @class = "anim-easy-in-out-0-5s" })</li>
+            <li>@Html.ActionLink("CONTATO", "", "", new { area = "" }, htmlAttributes: new { @class = "anim-easy-in-out-0-5s" })</li>
+        </ul>
+        <nav class="log-area">
+
+            @if (!userlogged)//VERIFICA SE O
+            {
+                <div class="logged">
+                    <div class="img-login">
+                        <input type="checkbox" id="trigger" class="check-outclick" />
+                        <label class="noselect" for="trigger" id="lbl-trigger">
+                            <i class="fa fa-plus"> </i> @(name)
+                        </label>
+                        <ul>
+                            @if (admin)
+                            {
+                                <li><a href='@Url.Action("Produtos", "Produtos", new { area = "Administrador" })'><i class="fas fa-list-alt"> </i> CONTROLE DE PRODUTOS</a></li>
+                                <li><a href='@Url.Action("Pedidos", "Pedidos", new { area = "Administrador" })'><i class="fas fa-tasks"> </i> CONTROLE DE PEDIDOS</a></li>
+                            }
+                            else
+                            {
+                                <li><a href='@Url.Action("Pedidos", "Pedido", new { area = "Usuario" })'><i class="fas fa-list-alt"> </i> REALIZAR PEDIDOS</a></li>
+                                <li><a href='@Url.Action("PedidosRealizadosCliente", "Pedido", new { area = "Usuario" })'><i class="fas fa-check-square"> </i> PEDIDOS REALIZADOS</a></li>
+                                <li><a href='@Url.Action("MasonryTeste", "Pedido", new { area = "Usuario" })'><i class="fas fa-check-square"> </i> MASONRY</a></li>
+                            }
+
+                            <li><a href='@Url.Action("Sair", "Login", new { area = "" }, null)'><i class="fa fa-sign-out" aria-hidden="true"> </i> SAIR - LOGOFF</a></li>
+                        </ul>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <ul class="login-signup">
+                    <li>@Html.ActionLink("CADASTRO", "Cadastrar", "Cadastrar", new { area = "" }, htmlAttributes: new { @class = "anim-easy-in-out-0-5s" })</li>
+                    <li>@Html.ActionLink("LOGIN", "Login", "Login", new { area = "" }, htmlAttributes: new { @class = "anim-easy-in-out-0-5s" })</li>
+                </ul>
+            }
+        </nav>
+    </div>
+</div>
+

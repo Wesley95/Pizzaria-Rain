@@ -1,0 +1,165 @@
+﻿
+.container-edit-products
+{
+    overflow:auto;
+    box-sizing:border-box;
+}
+
+.product-item-container-edit
+{
+    margin-bottom:10px;
+}
+
+
+.subtype-edit-options {
+    overflow: auto;
+    width: 100%;
+    padding: 5px 5px;
+    box-sizing: border-box;
+    /*background-color:darkorange;*/
+}
+
+.btn-default-edit {
+    border-radius: 5%;
+    background: #e3e3e3;
+    font-size: 13px;
+    font-weight: 700;
+    color: #000000;
+    border: none;
+    padding: 3px 7px;
+    transition: .3s color ease-in-out;
+    -webkit-transition: .3s color ease-in-out;
+    -o-transition: .3s color ease-in-out;
+    -moz-transition: .3s color ease-in-out;
+}
+
+    .btn-default-edit:disabled {
+        background: #e3e3e3;
+        color:#808080;
+    }
+
+.btn-red-edit
+{
+    background:#DF2025;
+}
+
+.btn-red-edit:disabled,
+.btn-red-edit:disabled:hover
+{
+    background:#fd9497;
+    color:#ffffff;
+}
+
+.btn-red-edit:hover{
+    background:#b30c10;
+}
+
+
+.btn-green-edit {
+    background: #46A93D;
+}
+
+.btn-green-edit:disabled,
+.btn-green-edit:disabled:hover
+{
+    background:#a6ef9f;
+    color:#FFFFFF;
+}
+
+    .btn-green-edit:hover {
+        background: #287b21;
+    }
+
+
+.btn-yellow-edit {
+    background: #FFCF6D;
+}
+
+.btn-yellow-edit:disabled,
+.btn-yellow-edit:disabled:hover{
+    background: #ffe9bd;
+    color:#ffffff;
+}
+
+
+    .btn-yellow-edit:hover {
+        background: #d29f35;
+    }
+
+
+.btn-brown-edit {
+    background: #642120;
+}
+
+
+    .btn-brown-edit:disabled,
+    .btn-brown-edit:disabled:hover {
+        background: #715656;
+        color: #ffffff;
+    }
+
+
+    .btn-brown-edit:hover {
+        background: #411211;
+    }
+
+.btn-green-edit,
+.btn-red-edit,
+.btn-yellow-edit,
+.btn-brown-edit{
+    color: #ffffff;
+}
+
+.products-container
+{
+    position:relative;
+}
+
+.product-item-container-edit {
+    width:100%;
+}
+
+.product-info-text
+{
+    height:calc(25px * 3);
+    resize:none;
+}
+
+.inside-three {
+    width: 100%;
+    overflow: auto;
+    /*background: purple;*/
+    margin-bottom: 5px;
+    display: block;
+}
+
+.inside-three-item {
+    width: 33.333333%;
+    /*border-right: 1px solid #e3e3e3;*/
+    /*background: gray;*/
+    float: left;
+    padding: 5px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+    .inside-three-item:after,
+    .inside-three:after {
+        content: " ";
+        clear: both;
+        display: table;
+    }
+
+
+@media only screen and (max-width:600px) {
+
+    .inside-three {
+        display: block;
+    }
+
+    .inside-three-item {
+        margin-top: 10px;
+        width: 100%;
+        background: brown;
+    }
+}

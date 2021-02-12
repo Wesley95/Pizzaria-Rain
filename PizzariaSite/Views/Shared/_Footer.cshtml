@@ -1,0 +1,25 @@
+﻿<footer class="footer-default">
+    <div class="footer-header">
+        <div class="links-media">
+            <a href="#" class="footer-fb-link anim-easy-in-out-0-5s"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="footer-insta-link anim-easy-in-out-0-5s"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="footer-tt-link anim-easy-in-out-0-5s"><i class="fab fa-twitter"></i></a>
+        </div>
+    </div>
+
+    <div class="center-info">
+        <div class="links-site">
+            <ul>
+                <li>@Html.ActionLink("HOME", "Index", "Home", new { area = "" }, htmlAttributes: new { @class = "anim-easy-in-out-0-5s" })</li>
+                <li>@Html.ActionLink("CARDÁPIO", "", "", new { area = "" }, htmlAttributes: new { @class = "anim-easy-in-out-0-5s" })</li>
+                <li>@Html.ActionLink("QUEM SOMOS", "", "", new { area = "" }, htmlAttributes: new { @class = "anim-easy-in-out-0-5s" })</li>
+                <li>@Html.ActionLink("GALERIA", "", "", new { area = "" }, htmlAttributes: new { @class = "anim-easy-in-out-0-5s" })</li>
+                <li>@Html.ActionLink("CONTATO", "", "", new { area = "" }, htmlAttributes: new { @class = "anim-easy-in-out-0-5s" })</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-footer">
+        <h4>&copy; @DateTime.Now.Year - Pizza Rain</h4>
+    </div>
+</footer>

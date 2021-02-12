@@ -1,0 +1,130 @@
+﻿.footer-default {
+    width: 100%;
+    height:150px;
+    background: #FFFFFF;
+    position: relative;
+    box-sizing: border-box;
+    bottom:0;
+    /*padding-top:10px;*/
+}
+
+.footer-default .footer-header
+{
+    border-top: 2px #000000 solid;
+    overflow:auto;
+    width:100%;
+}
+
+    .footer-default .footer-default-separator {
+        width: 100%;
+        height: 15px;
+        background-image: url(../../Images/Enfeites/TrianguloBege.png);
+        background-size: 15px 9px;
+        background-repeat: repeat-x;
+        display: block;
+    }
+
+    .footer-default .center-info {
+        width: 100%;
+        position: relative;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -50%);
+    }
+
+        .footer-default .links-media {
+            width: 15%;
+            box-sizing: border-box;
+            padding-bottom: 0px;
+            display: flex;
+            justify-content: space-between;           
+            margin: 0 auto;
+            padding-top:10px;
+        }
+
+@media only screen and (max-width:830px) {
+    .footer-default .links-media {
+        width: 35%;
+    }
+}
+
+.footer-default .links-media a {
+    font-size: 20px;
+    color: #000000;
+}
+
+
+.footer-default .links-media .footer-fb-link:hover {
+    color: #3B5998;
+}
+
+.footer-default .links-media .footer-tt-link:hover {
+    color: #00ACEE;
+}
+
+.footer-default .links-media .footer-insta-link:hover {
+    color: #C92087;
+}
+
+
+
+.footer-default .center-info .links-site {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+    .footer-default .center-info .links-site ul {
+        width: 100%;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        padding-inline-start: 0;
+        padding-inline-end: 0;
+        text-align: center;
+    }
+
+        .footer-default .center-info .links-site ul li {
+            display: inline-block;
+            font-family: 'Caviar Dreams';
+            font-size: 17px;
+            margin-right: 15px;
+            list-style: none;
+        }
+
+@media only screen and (max-width:600px) {
+    .footer-default .center-info .links-site ul li {
+        font-size: 15px;
+    }
+}
+
+.footer-default .center-info .links-site ul li a {
+    color: #000000;
+    font-weight: 800;
+}
+
+    .footer-default .center-info .links-site ul li a:hover {
+        color: #FFCF6D;
+        text-decoration: none;
+    }
+
+
+
+.footer-default .footer-footer {
+    min-height:30px;
+    box-sizing:border-box;
+    width: 100%;
+    background: #000000;
+    position: absolute;
+    bottom: 0;
+}
+
+.footer-footer h4 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-family: 'Caviar Dreams';
+    color: #FFCF6D;
+    margin:0;
+    padding:0;
+    
+}

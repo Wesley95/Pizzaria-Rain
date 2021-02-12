@@ -1,0 +1,284 @@
+﻿@model ProjetoPizzaria.DTO.Product
+@using ProjetoPizzaria.DTO;
+
+@{
+    ViewBag.Title = "Produto Adm";
+    var products = (System.Collections.Generic.List<ProductType>)ViewData["AllProducts"];
+    int l = 0;
+}
+
+<div class="width-max container-products-adm">
+
+    <svg class="inline-svg">
+        <symbol id="checkitem" viewBox="0 0 12 10">
+            <polyline points="1.5 3 3.5 7 8.5 0.5">
+                @*0.5 2.2 2.5 5.5 7.5 0.2*@
+            </polyline>
+        </symbol>
+    </svg>
+
+    <div class="left-field fields" style="overflow:hidden;">
+        <div class="tab">
+            <div class="nav-tab">
+                <ul class="ul-tab flex-row">
+                    @for (l = 0; l < products.Count(); l++)
+                    {
+                        <li><a class="tab-item-button @(l==0?"active":"")" data-id="@products[l].Id" id="@products[l].Nome">@products[l].Nome</a></li>
+                    }
+                </ul>
+            </div>
+
+            <div class="flex-row content-tab">
+
+                <div class="tab-content-products type-products-container">
+
+                    @for (l = 0; l < products.Count(); l++)
+                    {
+                        <div class="container-products flex-row" data-id="@products[l].Id" id="@products[l].Nome" style="display:@(l == 0?"flex":"none")">
+                            @{ string tab_name = "left";}
+
+                            @if (products[l].subproduto.Count() > 0)
+                            {
+                                foreach (var sub in products[l].subproduto)
+                                {
+                                    <div class="subproduct-container flex-row" id="@("subproduct-" + sub.Id)" data-id="@(sub.Id)">
+
+                                        <div class="row-flex border-trans subtype-name @(sub.Disponibilidade ? "actived-subtype" : "desactived-subtype")">
+                                            <div class="subproduct-item-controller flex-align">
+                                                <input class="inp-cbx checkSubProduct" data-id="@(sub.Id)" id="@(sub.Id + "/"+sub.Nome)" type="checkbox" @(sub.Disponibilidade ? "checked" : "unchecked") />
+                                                <label class="cbx inp-red-green" for="@(sub.Id + "/"+sub.Nome)">
+                                                    <span>
+                                                        <svg width="12px" height="10px">
+                                                            <use xlink:href="#checkitem"></use>
+                                                        </svg>
+                                                    </span>
+                                                </label>
+                                                <div class="">@sub.Nome</div>
+                                            </div>
+                                            <div class="type-controller-button">
+                                                <button data-id="@sub.Id" class="remove-subtype-product remove-button"><i class="fa fa-times-circle-o"></i></button>
+                                            </div>
+                                        </div>
+                                        @if (sub.produto.Count() > 0)
+                                        {
+                                            for (int c = 0; c < 2; c++)
+                                            {
+                                                if (sub.produto.Count() > 0)
+                                                {
+                                                    <div class="divider-tab divider-tab-@(tab_name)">
+
+                                                        @for (int c1 = c; c1 < sub.produto.Count(); c1 += 2)
+                                                        {
+                                                            @CreateFields(sub.produto[c1])
+                                                        }
+
+                                                        @{ tab_name = "right"; }
+
+                                                    </div>
+                                                }
+                                            }
+                                            tab_name = "left";
+                                        }
+                                        else
+                                        {
+                                            <div>Não há produtos adicionados.</div>
+                                        }
+                                    </div>
+
+                                    <div class="hr-tab"></div>
+                                }
+                            }
+                            else
+                            {
+                                <div>Não há subprodutos adicionados.</div>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="right-field fields">
+
+        <div class="type-controller section-product-type">
+            <h2 class="h-tittle">Tipo de Produto</h2>
+            @*<h1 class="separatorhr"></h1>*@
+            @foreach (var type in products)
+            {
+                <div class="border-trans row-flex container-type-product @(type.Disponibilidade ? "actived-type" : "desactived-type")">
+                    <div class="row-flex type-product-check ">
+                        @*<input class="form-check-input " type="checkbox" id="type@(@type.Id)" data-id="@type.Id" name="type" @(type.Disponibilidade ? "checked" : "unchecked")>*@
+
+                        <input class="inp-cbx checkProduct form-check-input" type="checkbox" id="@(type.Id + "/"+type.Nome)" data-id="@(type.Id)" name="type" @(type.Disponibilidade ? "checked" : "unchecked") />
+                        <label class="cbx inp-red-green" for="@(type.Id + "/"+type.Nome)">
+                            <span>
+                                <svg width="12px" height="10px">
+                                    <use xlink:href="#checkitem"></use>
+                                </svg>
+                            </span>
+                            <span>@type.Nome</span>
+                        </label>
+
+                        @*<label for="type@(@type.Id)" class="label-form default-label-min">@type.Nome</label>*@
+                    </div>
+                    <div class="type-controller-button">
+                        @Html.ActionLink("Editar", "EditTypeProducts", "Produtos", new { @type_product = type.Id }, htmlAttributes: new { @class = "edit-link" })
+                        <button data-id="@type.Id" class="remove-type-product remove-button"><i class="fa fa-times-circle-o"></i></button>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <hr />
+
+        <div class="register-type-product expand-retract">
+            <div class="expand-retract-header">
+                <h2 class="h-tittle">Inserir Tipo</h2>
+                @*<h1 class="separatorhr"></h1>*@
+            </div>
+            <div class="expand-retract-content">
+                @using (Html.BeginForm("", "", FormMethod.Post, new { @class = "form-type-product" }))
+                {
+                    <div class="form-group">
+                        <label for="TipoProdutoCadastro" class="label-form default-form-label">Nome</label>
+                        <input type="text" class="control-properties normal-control spcltr" name="TipoProduto" id="TipoProdutoCadastro" />
+                        <span class="text-danger" id="TipoProdutoMessage"></span>
+                    </div>
+                    <input type="submit" class="btn-default btn-modal" name="confirm-type" id="cadastrarTipoProduto" value="Cadastrar">
+                }
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="register-product expand-retract">
+            <div class="expand-retract-header">
+                <h2 class="h-tittle">Inserir Produto</h2>
+                @*<h1 class="separatorhr"></h1>*@
+            </div>
+            <div class="expand-retract-content">
+                @using (Html.BeginForm("", "", FormMethod.Post, new { @class = "form-product-insert" }))
+                {
+                    <div class="form-group">
+                        <label for="NomeProduto" class="label-form default-form-label">Nome</label>
+                        @Html.TextBoxFor(x => x.Nome, "", htmlAttributes: new
+                        {
+                            @class = "product-name control-properties normal-control spcltr"@*, placeholder = "Nome"*@})
+                        @Html.ValidationMessageFor(x => x.Nome, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label for="PrecoProduto" class="label-form default-form-label">Preço</label>
+                        @Html.TextBoxFor(x => x.PrecoProduto, "", htmlAttributes: new { @class = "product-price control-properties normal-control pricemask", placeholder = "R$0,00" })
+                        @Html.ValidationMessageFor(x => x.PrecoProduto, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label for="selectProductType" class="default-form-label" style="display:block;">Tipo de Produto</label>
+                        <select id="selectProductType" name="IdType" class="control-properties normal-control combo-type-products" required>
+                            @foreach (var item in products)
+                            {
+                                <option value="@item.Id" data-id="@item.Id">@item.Nome</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="selectSubType" class="default-form-label" style="display:block;">SubTipo</label>
+                        <select id="selectSubType" name="IdSubType" class="control-properties normal-control combo-subtype-products" required>
+                            @if (products[0] != null && products[0].subproduto.Count > 0)
+                            {
+                                foreach (var item in products[0].subproduto)
+                                {
+                                    <option value="@item.Id" data-id="@item.Id">@item.Nome</option>
+                                }
+                            }
+                        </select>
+                    </div>
+
+                    <input type="submit" class="btn-default btn-modal" name="confirm-form" id="cadastrarProduto" value="Cadastrar">
+                    @*<input type="button" class="btn-default btn-modal" name="" onclick="RefreshTypeSection();" value="Teste">*@
+                }
+            </div>
+
+        </div>
+
+        <hr />
+
+        <div class="register-subtype expand-retract">
+            <div class="expand-retract-header">
+                <h2 class="h-tittle">Inserir Subtipo</h2>
+                @*<h1 class="separatorhr"></h1>*@
+            </div>
+            <div class="expand-retract-content">
+                @using (Html.BeginForm("", "", FormMethod.Post, new { @class = "form-subtype-insert" }))
+                {
+                    <div class="form-group">
+                        <label for="subtype-register" class="label-form default-form-label">Nome</label>
+                        <input type="text" class="control-properties normal-control spcltr subtype-name-field" name="subtype-name-input" id="subtype-register" />
+                        <span class="text-danger" id="subtype-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="select-type-to-subtype" class="default-form-label" style="display:block;">Tipo de Produto</label>
+                        <select id="select-type-to-subtype" name="type-to-subtype" class="control-properties normal-control type-product-to-subtype" required>
+                            @foreach (var item in products)
+                            {
+                                <option value="@item.Id" data-id="@item.Id">@item.Nome</option>
+                            }
+                        </select>
+                    </div>
+
+                    <input type="submit" class="btn-default btn-modal" name="confirm-form" id="register-subtype" value="Confirmar">
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@helper  CreateFields(Product product)
+{
+    <div class="border-trans product-item @(product.Disponibilidade ? "actived-product" : "desactived-product")" data-id="@(product.Id)">
+        <div class="row-flex product-item-controller">
+
+            <input class="inp-cbx checkProduct" data-id="@(product.Id)" id="@(product.Id + "/"+product.Nome)" type="checkbox" @(product.Disponibilidade ? "checked" : "unchecked") />
+            <label class="cbx inp-red-green" for="@(product.Id + "/"+product.Nome)">
+                <span>
+                    <svg width="12px" height="10px">
+                        <use xlink:href="#checkitem"></use>
+                    </svg>
+                </span>
+                @*<span>Morning</span>*@
+            </label>
+            <button data-id="@product.Id" class="remove-product remove-button"><i class="fa fa-times-circle-o"></i></button>
+        </div>
+        <div class="row-flex">
+            <div class="product-name-price">@product.Nome</div>
+            <div class="product-name-price">R$@product.PrecoProduto</div>
+        </div>
+    </div>
+}
+
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/inputmask")
+    @Scripts.Render("~/FunctionsProduct")
+
+    <script type="text/javascript">
+
+        $(document).on("click", ".tab-item-button", function () {
+            const id = $(this).attr("id");
+            const leader = $(this).parents(".tab");
+
+            leader.find(".tab-item-button").removeClass("active");
+            $(this).addClass("active");
+
+            leader.find(".tab-content-products .container-products").css("display", "none");
+            leader.find(".tab-content-products .container-products#" + id).css("display", "flex");
+        });
+
+
+    </script>
+}

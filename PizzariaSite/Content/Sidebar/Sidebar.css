@@ -1,0 +1,139 @@
+﻿.sidebar {
+    position: fixed;
+    right: -270px;
+    top: 0;
+    width: 270px;
+    height: 100%;
+    background: #FFFFFF;
+    transition: all .3s ease;
+    border-left: 3px solid #FFCF6D;
+    z-index: 3000;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+    .sidebar header {
+        font-size: 20px;
+        color: #FFCF6D;
+        font-weight: 700;
+        line-height: 60px;
+        text-align: center;
+        font-family: Deco,'Market Deco';
+        user-select: none;
+    }
+
+    .sidebar ul {
+        margin-block-start: 0;
+        margin-block-end: 0;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 0px;
+    }
+
+        .sidebar ul a, .separator-li {
+            box-sizing: border-box;
+            height: 100%;
+            width: 100%;
+            display: block;
+            padding-left: 30px;
+            border-bottom: 1px solid #F1E7DB;
+            border-top: 1px solid rgba(255,255,255,.1);
+            line-height: 65px;
+            color: #642120;
+            font-size: 15px;
+            font-weight: 900;
+            font-family: 'Caviar Dreams';
+            transition: .3s;
+        }
+
+        .sidebar ul li, .separator-li {
+            list-style: none;
+        }
+
+            .sidebar ul li:hover a {
+                padding-left: 45px;
+                text-decoration: none;
+                cursor: pointer;
+                color: #FFCF6D;
+            }
+
+        .sidebar ul a i {
+            margin-right: 16px;
+        }
+
+
+.separator-li {
+    padding-left: 10px;
+    font-family: 'Market Deco';
+}
+
+
+
+#check {
+    display: none;
+    pointer-events: none;
+}
+
+.lbl-buttons-sidebar #btn,
+.lbl-buttons-sidebar #cancel {
+    color: #642120;
+    cursor: pointer;
+}
+
+.lbl-buttons-sidebar #cancel {
+    position: fixed;
+    z-index: 3001;
+    right: -250px;
+    top: 17px;
+    font-size: 30px;
+    padding: 2px 4px;
+    transition: all .3s ease;
+}
+
+
+.lbl-buttons-sidebar #btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 35px;
+    padding: 6px 12px;
+    transition: all .3s;
+}
+
+    .lbl-buttons-sidebar #btn:hover,
+    .lbl-buttons-sidebar #cancel:hover {
+        color: #FFCF6D;
+    }
+
+#check:checked ~ .sidebar {
+    right: 0;
+}
+
+#check:checked ~ .lbl-buttons-sidebar #btn {
+    right: 250px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#check:checked ~ .lbl-buttons-sidebar #cancel {
+    right: 220px;
+}
+
+.sidebar-container {
+    z-index: 3000;
+}
+
+@media only screen and (min-width:900px) {
+    .sidebar-container {
+        display: none;
+    }
+}
+
+/*#check:checked ~ body {
+    margin-right: 250px;
+}*/
+
+/*body {
+    transition: all .5s;
+}*/

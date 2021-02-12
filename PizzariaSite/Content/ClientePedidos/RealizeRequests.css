@@ -1,0 +1,235 @@
+﻿.parent-request-table {
+    /*background: brown;*/
+    overflow: auto;
+    padding: 20px 0px;
+    box-sizing: border-box;
+    /*justify-content: space-between;*/
+    /*display: flex;*/
+}
+
+.left-request-table {
+    float: left;
+    width: 65%;
+    box-sizing: border-box;
+    padding: 10px;
+    /*background: purple;*/
+    /*border: 1px solid #d3d3d3;*/
+}
+
+#container-request-add {
+    float: right;
+    overflow: auto;
+    padding: 10px;
+    width: 35%;
+    /*background: green;*/
+    /*border-top: 1px solid #d3d3d3;
+    border-right: 1px solid #d3d3d3;
+    border-bottom: 1px solid #d3d3d3;*/
+}
+
+
+    .table-request-container,
+    #container-request-add .all-requests {
+        width: 100%;
+        overflow: auto;
+        background: #ffffff;
+        margin-bottom: 15px;
+        /*border-radius: 1%;*/
+        box-sizing: border-box;
+        padding: 5px;
+        background: #ffffff;
+        /*border: 1px solid #d3d3d3;*/
+    }
+
+@media only screen and (max-width:980px) {
+    #container-request-add {
+        /*border-right: 1px solid #d3d3d3;
+        border-left: 1px solid #d3d3d3;
+        border-bottom: 1px solid #d3d3d3;*/
+        /*border-top: 0;*/
+        padding: 5px 0px;
+    }
+
+    .left-request-table {
+        /*border: 1px solid #d3d3d3;*/
+        padding: 5px;
+    }
+
+    #container-request-add,
+    .left-request-table {
+        width: 98%;
+        float: none;
+        margin: 0 auto;
+    }
+
+        #container-request-add .all-requests {
+            margin: 0px;
+        }
+}
+
+
+.tittle-h2 {
+    text-align: center;
+    margin: 0 auto;
+    font-family: 'Caviar Dreams';
+    color: rgb(128,128,128);
+}
+
+
+.tittle-principal {
+    text-align: left;
+    margin: 0 auto;
+    font-family: Roboto;
+    color: #642120;
+}
+
+.table-request-container
+{
+    padding:0;
+}
+
+.table-request-container table {
+    margin: 0 auto;
+    width: 100%;
+}
+    .table-request-container table th {
+        text-align: center;
+    }
+
+    .table-request-container table thead th {
+        text-align: center;
+        background-color: rgb(128, 128, 128);
+        color: #ffffff;
+    }
+
+    .table-request-container table tbody tr th,
+    .table-request-container table tbody td,
+    .table-request-container table thead tr th {
+        border: none;
+    }
+
+    .table-request-container table tbody tr td {
+        vertical-align: middle;
+    }
+
+.tr-products-to-buy td {
+    text-align: center;
+}
+
+
+.request-client-item {
+    width: 100%;
+    background: #ffffff;
+    padding: 10px 5px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+    .request-client-item .request-client-line {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        /*background: purple;*/
+        margin-bottom: 2px;
+        overflow: auto;
+        position: relative;
+        min-height: 30px;
+    }
+
+.request-client-line .request-client-total-area {
+    width: 100px;
+    height: 30px;
+    /*background: brown;*/
+    float: left;
+}
+
+
+.request-client-line .remove-request {
+    background-color: transparent;
+    border: none;
+    float: right;
+    font-size: 20px;
+    color: #e5e5e5;
+}
+
+    .request-client-line .remove-request:hover {
+        color: #DF2025;
+    }
+
+.request-client-line #price-item {
+}
+
+.request-client-line #name-item {
+}
+
+
+
+/*BOTÕES*/
+.btn-add-product-request {
+    padding: 1px 10px;
+    height: 30px;
+}
+
+.confirm-request {
+    height: 40px;
+    margin-top: 10px;
+}
+
+/*INPUT NUMBER SPINNER CLIENT REQUEST*/
+.count-value-request .dp-numberPicker-input {
+    background-color: #ffffff;
+}
+
+.count-value-request .dp-numberPicker-add,
+.count-value-request .dp-numberPicker-input,
+.count-value-request .dp-numberPicker-sub {
+    height: 25px;
+    line-height: 30px;
+    font-family: Roboto,serif;
+    padding: 0px 5px;
+}
+
+.dp-numberPicker {
+    width: 100%;
+}
+
+.count-value-request .dp-numberPicker-add,
+.count-value-request .dp-numberPicker-sub {
+    width: 25px;
+    font-size: 15px;
+    background-color: #33b5e5;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 50%;
+    transition: all ease-in .1s;
+    -webkit-transition: all ease-in .1s;
+    -moz-transition: all ease-in .1s;
+    /*-ms-transition: all ease-in .1s;*/
+    -o-transition: all ease-in .1s;
+}
+
+.count-value-request .dp-numberPicker-add,
+.count-value-request .dp-numberPicker-sub {
+    background-color: #d3d3d3;
+}
+
+    .count-value-request .dp-numberPicker-add:hover,
+    .count-value-request .dp-numberPicker-sub:hover {
+        background-color: #bebebe;
+    }
+
+    .count-value-request .dp-numberPicker-add.disabled,
+    .count-value-request .dp-numberPicker-sub.disabled {
+        background-color: #353535;
+    }
+
+.count-value-request .dp-numberPicker-input {
+    width: 40px;
+    font-size: 14px;
+    background-color: #ffffff;
+    border: 0;
+}
+
+    .count-value-request .dp-numberPicker-input:disabled {
+        background-color: #ffffff;
+    }

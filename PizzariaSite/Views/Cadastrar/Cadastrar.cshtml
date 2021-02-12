@@ -1,0 +1,121 @@
+﻿@model ProjetoPizzaria.DTO.UserControl
+
+@{
+    ViewBag.Title = "Cadastrar";
+}
+
+<div class="width-max">
+
+    @using (Html.BeginForm("CadastrarCliente", "Cadastrar", FormMethod.Post))
+    {
+
+        @Html.AntiForgeryToken()
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <div class="form-group col-md-8">
+                    <label for="Nome">Nome</label>
+                    @*<input type="email" class="form-control" id="Email" name="Email" placeholder="Email">*@
+                    @Html.EditorFor(x => x.Nome, new { htmlAttributes = new { @class = "form-control spcltr", @placeholder = "Nome", @maxlength = "50" } })
+                    @*@Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })*@
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="CPF">CPF</label>
+                    @Html.EditorFor(x => x.CPF, new { htmlAttributes = new { @class = "form-control", @placeholder = "CPF", @maxlength = "11" } })
+                    @*@Html.ValidationMessageFor(x => x.ConfirmEmail, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+
+            <div class="form-group col-md-6">
+                <div class="form-group col-md-6">
+                    <label for="Email">Email</label>
+                    @*<input type="email" class="form-control" id="Email" name="Email" placeholder="Email">*@
+                    @Html.EditorFor(x => x.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email", @maxlength = "200" } })
+                    @*@Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })*@
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="ConfirmEmail">Confirmar Email</label>
+                    @Html.EditorFor(x => x.ConfirmEmail, new { htmlAttributes = new { @class = "form-control", @placeholder = "Email", @maxlength = "200" } })
+                    @*@Html.ValidationMessageFor(x => x.ConfirmEmail, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+
+            <div class="form-group col-md-6">
+                <div class="form-group col-md-6">
+                    <label for="Password">Senha</label>
+                    @*<input type="password" class="form-control" id="Password" name="Password" placeholder="Senha">*@
+                    @Html.EditorFor(x => x.Password, new { htmlAttributes = new { @class = "form-control", @placeholder = "Senha", @maxlength = "5", @type = "password" } })
+                    @*@Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })*@
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="ConfirmPassword">Confirmar Senha</label>
+                    @*<input type="password" class="form-control" id="ConfirmPassword" name="ConfirmPassword" placeholder="Confirmar Senha">*@
+                    @Html.EditorFor(x => x.ConfirmPassword, new { htmlAttributes = new { @class = "form-control", @placeholder = "Confirmar Senha", @maxlength = "5", @type = "password" } })
+                    @*@Html.ValidationMessageFor(x => x.ConfirmPassword, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <div class="form-group col-md-4">
+                    <label for="CEP">CEP</label>
+                    @Html.EditorFor(x => x.CEP, new { htmlAttributes = new { @class = "form-control", @placeholder = "CEP", @maxlength = "9" } })
+
+                    @*<input type="text" class="form-control" id="CEP">*@
+                </div>
+                <div class="form-group col-md-8">
+                    <label for="Cidade">Cidade</label>
+                    @Html.EditorFor(x => x.Cidade, new { htmlAttributes = new { @class = "form-control spcltr", @placeholder = "Cidade", @maxlength = "100" } })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <div class="form-group col-md-4">
+                    <label for="CEP">Bairro</label>
+                    @Html.EditorFor(x => x.Bairro, new { htmlAttributes = new { @class = "form-control spcltr", @placeholder = "Bairro", @maxlength = "100" } })
+
+                </div>
+                <div class="form-group col-md-8">
+                    <label for="Cidade">Estado</label>
+                    @Html.EditorFor(x => x.Estado, new { htmlAttributes = new { @class = "form-control spcltr", @placeholder = "Estado", @maxlength = "100" } })
+
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <div class="form-group col-md-9">
+                    <label for="Cidade">Rua</label>
+                    @Html.EditorFor(x => x.Logradouro, new { htmlAttributes = new { @class = "form-control spcltr", @placeholder = "Rua", @maxlength = "100" } })
+
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="CEP">Número</label>
+                    @Html.EditorFor(x => x.Numero, new { htmlAttributes = new { @class = "form-control", @placeholder = "Numero", @maxlength = "100" } })
+                </div>
+            </div>
+        </div>
+
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+    }
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Cadastro")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            controllCEP();
+        });
+        applylettermask();
+    </script>
+}
